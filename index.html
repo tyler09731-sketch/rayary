@@ -33,20 +33,28 @@ a{text-decoration:none;color:inherit}
 
 /* HEADER */
 header{background:var(--white);padding:16px 5%;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:1000;border-bottom:1px solid var(--border-light)}
-.logo{font-size:22px;font-weight:900;letter-spacing:-0.5px;color:var(--text-main);display:flex;align-items:center;gap:4px}
+.logo{font-size:22px;font-weight:900;letter-spacing:-0.5px;color:var(--text-main);display:flex;align-items:center;gap:4px;flex-shrink:0}
 .logo span{color:var(--orange)}
 .nav-desktop{display:flex;align-items:center;gap:32px}
 .nav-desktop a{font-weight:500;font-size:14px;transition:color .2s}
 .nav-desktop a:hover{color:var(--orange)}
+
 .header-right{display:flex;align-items:center;gap:16px}
-.lang-switch{display:flex;gap:4px;background:var(--light-bg);padding:4px;border-radius:8px}
+.lang-switch{display:flex;gap:4px;background:var(--light-bg);padding:4px;border-radius:8px;flex-shrink:0}
 .lang-btn{background:transparent;border:none;padding:6px 12px;font-size:12px;font-weight:700;color:var(--text-muted);cursor:pointer;border-radius:6px;transition:all .2s}
 .lang-btn.active{background:var(--white);color:var(--text-main);box-shadow:0 2px 4px rgba(0,0,0,0.05)}
-.btn-outline{border:1px solid var(--border-light);padding:10px 20px;border-radius:50px;font-weight:600;font-size:13px;cursor:pointer;background:transparent;transition:all .2s;display:inline-flex;align-items:center;gap:6px}
+
+.header-actions{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.btn-outline{border:1px solid var(--border-light);padding:10px 16px;border-radius:50px;font-weight:600;font-size:13px;cursor:pointer;background:transparent;transition:all .2s;display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
 .btn-outline:hover{border-color:var(--text-main)}
-.btn-primary{background:var(--orange);color:var(--white);border:none;padding:10px 24px;border-radius:50px;font-weight:600;font-size:13px;cursor:pointer;transition:all .2s}
+.btn-primary{background:var(--orange);color:var(--white);border:none;padding:10px 20px;border-radius:50px;font-weight:600;font-size:13px;cursor:pointer;transition:all .2s;white-space:nowrap}
 .btn-primary:hover{background:var(--orange-hover);transform:translateY(-1px);box-shadow:0 4px 12px rgba(255,107,0,0.3)}
-.menu-btn{display:none;background:none;border:none;font-size:24px;cursor:pointer}
+
+.menu-btn{display:none;background:none;border:none;font-size:24px;cursor:pointer;color:var(--text-main);padding:8px;margin-left:4px}
+.mobile-nav{display:none;position:absolute;top:100%;left:0;right:0;background:var(--white);border-bottom:1px solid var(--border-light);box-shadow:0 10px 20px rgba(0,0,0,0.05);padding:16px 5%;flex-direction:column;gap:16px;z-index:999}
+.mobile-nav.open{display:flex}
+.mobile-nav a{font-weight:600;font-size:16px;color:var(--text-main);padding:8px 0;border-bottom:1px solid var(--light-bg)}
+.mobile-nav a:last-child{border-bottom:none}
 
 /* HERO (DARK) */
 .hero{background:var(--dark-bg);color:var(--white);padding:80px 5% 100px;position:relative;overflow:hidden}
@@ -54,10 +62,10 @@ header{background:var(--white);padding:16px 5%;display:flex;justify-content:spac
 .hero-text h1{font-size:4rem;font-weight:800;line-height:1.1;letter-spacing:-1.5px;margin-bottom:20px}
 .hero-text h1 span{color:var(--orange);display:block}
 .hero-text p{font-size:1.1rem;color:var(--text-light);margin-bottom:36px;max-width:480px;line-height:1.7}
-.hero-btns{display:flex;gap:16px;flex-wrap:wrap}
-.btn-hero{background:var(--orange);color:var(--white);padding:16px 32px;border-radius:12px;font-weight:700;font-size:15px;cursor:pointer;border:none;display:inline-flex;align-items:center;gap:8px;transition:all .2s}
+.hero-btns{display:flex;gap:16px;flex-wrap:nowrap}
+.btn-hero{background:var(--orange);color:var(--white);padding:16px 32px;border-radius:12px;font-weight:700;font-size:15px;cursor:pointer;border:none;display:inline-flex;align-items:center;gap:8px;transition:all .2s;justify-content:center;flex:1}
 .btn-hero:hover{background:var(--orange-hover);transform:translateY(-2px);box-shadow:0 8px 24px rgba(255,107,0,0.4)}
-.btn-hero-secondary{background:var(--dark-card);color:var(--white);padding:16px 32px;border-radius:12px;font-weight:600;font-size:15px;cursor:pointer;border:1px solid var(--dark-border);display:inline-flex;align-items:center;gap:8px;transition:all .2s}
+.btn-hero-secondary{background:var(--dark-card);color:var(--white);padding:16px 32px;border-radius:12px;font-weight:600;font-size:15px;cursor:pointer;border:1px solid var(--dark-border);display:inline-flex;align-items:center;gap:8px;transition:all .2s;justify-content:center;flex:1}
 .btn-hero-secondary:hover{background:#2C2C2E}
 .hero-card{background:var(--dark-card);border:1px solid var(--dark-border);border-radius:24px;padding:40px;text-align:center;box-shadow:var(--shadow-dark);display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px;position:relative;overflow:hidden}
 .hero-card::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle, rgba(255,107,0,0.1) 0%, transparent 60%);pointer-events:none}
@@ -103,7 +111,7 @@ footer{background:var(--dark-bg);color:var(--white);padding:80px 5% 40px;border-
 .ft-col ul li a:hover{color:var(--orange)}
 .ft-bottom{max-width:1200px;margin:0 auto;padding-top:32px;border-top:1px solid var(--dark-border);display:flex;justify-content:space-between;align-items:center;color:var(--text-light);font-size:13px}
 
-/* MODAL - MATCHING SCREENSHOT EXACTLY */
+/* MODAL */
 .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.7);backdrop-filter:blur(5px);z-index:2000;display:none;align-items:center;justify-content:center;padding:20px;opacity:0;transition:opacity .3s}
 .modal-overlay.open{display:flex;opacity:1}
 .modal-content{background:var(--white);border-radius:24px;padding:40px;max-width:480px;width:100%;position:relative;transform:translateY(20px);transition:transform .3s}
@@ -115,12 +123,12 @@ footer{background:var(--dark-bg);color:var(--white);padding:80px 5% 40px;border-
 .modal-group{margin-bottom:24px}
 .modal-label{display:block;font-size:13px;font-weight:600;margin-bottom:8px;color:var(--text-main)}
 
-/* Input styling for modal */
+/* Input styling */
 .modal-input{width:100%;padding:16px;border:1px solid var(--border-light);border-radius:12px;font-size:16px;font-family:inherit;background:var(--light-bg);color:var(--text-main);outline:none;transition:border-color .2s}
 .modal-input:focus{border-color:var(--orange);background:var(--white)}
 .modal-input::placeholder{color:var(--text-muted)}
 
-/* Select styling for modal */
+/* Select styling */
 .modal-select{width:100%;padding:16px;border:1px solid var(--border-light);border-radius:12px;font-size:16px;font-family:inherit;background:var(--light-bg);color:var(--text-main);outline:none;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%236B7280%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");background-repeat:no-repeat;background-position:right 16px top 50%;background-size:12px auto;cursor:pointer;transition:border-color .2s}
 .modal-select:focus{border-color:var(--orange);background-color:var(--white)}
 .modal-select option{color:var(--text-main);background:var(--white)}
@@ -129,7 +137,7 @@ footer{background:var(--dark-bg);color:var(--white);padding:80px 5% 40px;border-
 .modal-summary .p-row{font-size:13px}
 .modal-summary .p-row strong{color:var(--text-main)}
 
-/* MOBILE */
+/* RESPONSIVE MOBILE FIXES */
 @media (max-width: 1024px){
   .hero-inner{grid-template-columns:1fr;text-align:center;gap:40px}
   .hero-text p{margin:0 auto 36px}
@@ -138,6 +146,7 @@ footer{background:var(--dark-bg);color:var(--white);padding:80px 5% 40px;border-
   .plans-grid{grid-template-columns:1fr;max-width:500px}
   .ft-grid{grid-template-columns:1fr 1fr 1fr;gap:30px}
 }
+
 @media (max-width: 768px){
   .nav-desktop{display:none}
   .menu-btn{display:block}
@@ -146,12 +155,27 @@ footer{background:var(--dark-bg);color:var(--white);padding:80px 5% 40px;border-
   .ft-grid{grid-template-columns:1fr 1fr}
   .ft-bottom{flex-direction:column;text-align:center;gap:16px}
 }
-@media (max-width: 480px){
+
+@media (max-width: 600px){
+  /* Header fixes */
+  header{padding:12px 4%}
+  .logo{font-size:20px}
+  .header-right{gap:8px}
+  .lang-switch{padding:2px}
+  .lang-btn{padding:4px 8px;font-size:11px}
+  .btn-outline{padding:8px 12px;font-size:12px;display:none} /* Hide "Sign In" to save space */
+  .btn-primary{padding:8px 14px;font-size:12px}
+  .menu-btn{margin-left:0;font-size:22px}
+
+  /* Hero buttons side by side */
+  .hero-btns{flex-direction:row;gap:10px}
+  .btn-hero, .btn-hero-secondary{padding:14px 10px;font-size:13px;gap:4px}
   .hero-text h1{font-size:2.2rem}
-  .hero-btns{flex-direction:column}
-  .btn-hero, .btn-hero-secondary{width:100%;justify-content:center}
-  .ft-grid{grid-template-columns:1fr}
+}
+
+@media (max-width: 480px){
   .modal-content{padding:30px 20px}
+  .ft-grid{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -160,19 +184,32 @@ footer{background:var(--dark-bg);color:var(--white);padding:80px 5% 40px;border-
 <!-- HEADER -->
 <header>
   <a class="logo" href="index.html">Txeneka<span>.</span></a>
+  
   <nav class="nav-desktop">
     <a href="#loans" data-i18n="nav.plans">Empréstimos</a>
     <a href="#features" data-i18n="nav.how">Vantagens</a>
     <a href="#contact" data-i18n="ft.s2">Contacto</a>
   </nav>
+
   <div class="header-right">
     <div class="lang-switch">
       <button class="lang-btn active" data-lang="pt" onclick="setLang('pt')">PT</button>
       <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
     </div>
-    <button class="btn-outline" onclick="openModal()">↪ <span data-i18n="hero.btnSign">Entrar</span></button>
-    <button class="btn-primary" onclick="openModal()" data-i18n="nav.cta">Solicitar</button>
-    <button class="menu-btn">☰</button>
+    
+    <div class="header-actions">
+      <button class="btn-outline" onclick="openModal()">↪ <span data-i18n="hero.btnSign">Entrar</span></button>
+      <button class="btn-primary" onclick="openModal()" data-i18n="nav.cta">Solicitar</button>
+      <button class="menu-btn" onclick="toggleMobileMenu()">☰</button>
+    </div>
+  </div>
+
+  <!-- Mobile Dropdown Nav -->
+  <div class="mobile-nav" id="mobileNav">
+    <a href="#loans" onclick="toggleMobileMenu()" data-i18n="nav.plans">Empréstimos</a>
+    <a href="#features" onclick="toggleMobileMenu()" data-i18n="nav.how">Vantagens</a>
+    <a href="#contact" onclick="toggleMobileMenu()" data-i18n="ft.s2">Contacto</a>
+    <a href="#" onclick="toggleMobileMenu(); openModal();" data-i18n="hero.btnSign">Entrar</a>
   </div>
 </header>
 
@@ -349,6 +386,12 @@ footer{background:var(--dark-bg);color:var(--white);padding:80px 5% 40px;border-
 </div>
 
 <script>
+// MOBILE MENU LOGIC
+function toggleMobileMenu() {
+  const nav = document.getElementById('mobileNav');
+  nav.classList.toggle('open');
+}
+
 const translations = {
   pt: {
     "nav.plans":"Empréstimos","nav.how":"Vantagens","nav.cta":"Solicitar",
@@ -439,7 +482,6 @@ function updateModalCalc() {
   if (isNaN(amount) || amount < 700) amount = 700;
   if (amount > 150000) amount = 150000;
   
-  // Only update the input value if it's out of bounds, don't override typing
   if (amountInput.value !== "" && (parseInt(amountInput.value) < 700 || parseInt(amountInput.value) > 150000)) {
     amountInput.value = amount;
   }
